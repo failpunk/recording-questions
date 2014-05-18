@@ -1,0 +1,12 @@
+methods:
+  post:
+    - "answer"
+
+names:
+  answer:
+    required: true
+    required_msg: Please give your question a descriptive title.
+    validators: fnValidator
+
+fnValidator:
+  class: sfStringValidator

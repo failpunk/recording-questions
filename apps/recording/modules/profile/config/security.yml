@@ -1,0 +1,8 @@
+#userEdit:
+#  is_secure: on
+#  credentials: [[ unconfirmed, user ]]
+
+autocomplitTags:
+  is_secure: off
+#  credentials: [[ unconfirmed, user ]]
+

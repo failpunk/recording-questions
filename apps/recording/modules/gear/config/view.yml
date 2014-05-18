@@ -1,0 +1,19 @@
+all:
+  javascripts: ['/min/b=js&f=addNewGear.js,companyDetail.js,gearDetail.js']
+#  stylesheets: [gear.css, /sfJqueryReloadedPlugin/css/JqueryAutocomplete.css]
+
+favoriteQuestion:
+  has_layout:     off
+  layout:         off
+
+#gearDetailSuccess:
+#  javascripts:    [ gearDetail ]
+#
+#companySuccess:
+#  javascripts:    [ companyDetail ]
+#
+#addNewSuccess:
+#  javascripts:    [ addNewGear ]
+#
+#updateImageSuccess:
+#  javascripts:    [ addNewGear ]

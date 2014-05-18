@@ -1,0 +1,15 @@
+searchSuccess:
+  has_layout:     off
+  layout:         layout
+updateVoteSuccess:
+  has_layout:     off
+  layout:         off
+favoriteQuestion:
+  has_layout:     off
+  layout:         off
+
+#askQuestionSuccess:
+#  javascripts:    [ askQuestion ]
+
+#questionDetailSuccess:
+#  javascripts:    [ questionDetail ]

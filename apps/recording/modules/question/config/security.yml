@@ -1,0 +1,36 @@
+#favoriteQuestion:
+#  is_secure: on
+#  credentials:  user
+#updateVoteForQuestion:
+#  is_secure: on
+#  credentials:  user
+#updateVote:
+#  is_secure: on
+#  credentials:  user
+offensiveQuestion:
+  is_secure: on
+  credentials:  user
+offensiveAnswer:
+  is_secure: on
+  credentials:  user
+editQuestion:
+  is_secure: on
+  credentials:  user
+deleteQuestion:
+  is_secure: on
+  credentials:  [[user, admin]]
+deleteAnswer:
+  is_secure: on
+  credentials:  [[user, admin]]
+undeleteQuestion:
+  is_secure: on
+  credentials:  admin
+undeletedAnswer:
+  is_secure: on
+  credentials:  admin
+lockQuestion:
+  is_secure: on
+  credentials:  admin
+unlockQuestion:
+  is_secure: on
+  credentials:  admin

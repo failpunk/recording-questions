@@ -1,0 +1,15 @@
+indexSuccess:
+  metas:
+    title:          Audio Recording Question and Answers Community - <?php echo sfConfig::get('app_domain_name')."\n" ?>
+    description:    Find the answers to all your recording questions, earn experience and rewards in the worlds best online recording community.
+
+aboutSuccess:
+  metas:
+    title:          Learn More About Us - <?php echo sfConfig::get('app_domain_name')."\n" ?>
+    description:    Find out what Recording Questions.com is about and what we have to offer.
+
+faqSuccess:
+  metas:
+    title:          Frequently Asked Questions - <?php echo sfConfig::get('app_domain_name')."\n" ?>
+    description:    Find the answers to some of the most common questions about the site.
+

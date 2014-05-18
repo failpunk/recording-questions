@@ -1,0 +1,39 @@
+dev:
+  propel:
+    param:
+      classname:  DebugPDO
+
+test:
+  propel:
+    param:
+      classname:  DebugPDO
+
+prod:
+  propel:
+    param:
+      classname:  PropelPDO
+      dsn:        mysql:dbname=record_production;host=localhost
+
+  cj:
+    param:
+      classname:  PropelPDO
+      dsn:        mysql:dbname=record_cj;host=localhost
+
+all:
+  propel:
+    class:        sfPropelDatabase
+    param:
+      classname:  PropelPDO
+      dsn:        mysql:dbname=martini_recordingquestions;host=localhost
+      encoding:   utf8
+      persistent: true
+      pooling:    true
+      
+  cj:
+    class:        sfPropelDatabase
+    param:
+      classname:  PropelPDO
+      dsn:        mysql:dbname=martini_cj;host=localhost
+      encoding:   utf8
+      persistent: true
+      pooling:    true

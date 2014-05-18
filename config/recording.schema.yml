@@ -1,0 +1,701 @@
+connection: propel
+classes:
+  User:
+    columns:
+      _attributes:           { phpName: User }
+      id:                    { type: integer,      primary: true, autoincrement: true }
+      email:                 { type: varchar(64),  required: true }
+      display_name:          { type: varchar(255), required: true }
+      real_name:             { type: varchar(255), required: true }
+      location:              { type: varchar(255) }
+      webpage:               { type: varchar(255) }
+      country:               { typrevie: varchar(255) }
+      postal_code:           { type: integer      }
+      birthday:              { type: timestamp    }
+      gravatar_address:      { type: varchar(255) }
+      info:                  { type: longvarchar  }
+      platform:              { type: varchar(6), default: 'pc' }
+      experience_score:      { type: integer,   required: true, default: 0 }
+      up_votes:              { type: integer,   required: true, default: 0 }
+      down_votes:            { type: integer,   required: true, default: 0 }
+      is_guest:              { type: tinyint,   required: true, default: 0 }
+      is_admin:              { type: tinyint,   required: true, default: 0 }
+      today_votes:           { type: integer,   required: true, default: 0 }
+      email_on:              { type: tinyint,   required: true, default: 1 }
+      last_email:            { type: timestamp, required: true }
+      created_at:            { type: timestamp, required: true }
+      updated_at:            { type: timestamp, required: true }
+    indexes:
+      profile_email:       [email]
+      profile_name:        [real_name]
+      profile_postal_code: [postal_code]
+
+  UserMeta:
+    columns:
+      _attributes: { phpName: UserMeta }
+      id:                   ~
+      user_id:              { type: integer }
+      key:                  { type: varchar(45) }
+      value:                { type: longvarchar }
+      created_at:           ~
+    foreignKeys:
+      FK_user_meta_1:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  UserExperience:
+    columns:
+      _attributes:           { phpName: UserExperience }
+      id:                    { type: integer }
+      user_id:               { type: integer }
+      experience:            { type: integer, required: true, default: 0 }
+      created_at:            { type: timestamp, required: true }
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  Openid:
+    columns:
+      _attributes:  { phpName: Openid }
+      id:           { type: integer,      primary: true, autoincrement: true }
+      user_id:      { type: integer,      primary: true  }
+      openid:       { type: varchar(255), primary: true  }
+      created_at:   { type: timestamp,    required: true }
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  rpxAuth:
+    columns:
+      _attributes:  { phpName: RpxAuth }
+      id:           { type: integer,      primary: true, autoincrement: true }
+      user_id:      { type: integer,      primary: true  }
+      identifier:   { type: varchar(255), primary: true  }
+      last_login:   { type: timestamp,    default: '0000-00-00 00:00:00' }
+      created_at:   { type: timestamp,    required: true }
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  Question:
+    columns:
+      _attributes:  { phpName: Question }
+      id:           { type: integer,   primary: true, autoincrement: true }
+      user_id:      { type: integer,   required: true }
+      tag_id:       { type: integer }
+      title:        { type: varchar(255) }
+      description:  { type: longvarchar  }
+      offensive:    { type: integer,   required: true, default: 0 }
+      visible:      { type: integer,   required: true, default: 1 }
+      locked:       { type: integer,   required: true, default: 0 }
+      upvotes:      { type: integer,   required: true, default: 0 }
+      downvotes:    { type: integer,   required: true, default: 0 }
+      visited:      { type: integer,   required: true, default: 0 }
+      notify_email: { type: varchar(150), default: '' }
+      tweeted:      { type: tinyint, default: 0 }
+      created_at:   { type: timestamp, required: true }
+      updated_at:   { type: timestamp, required: true }
+    indexes:
+      post_created:           [created_at]
+      fk_post_user_profile:   [user_id]
+      post_title:             [title]
+      fk_question_tag:        [tag_id]
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  QuestionComment:
+    columns:
+      _attributes:  { phpName: QuestionComment }
+      id:           ~
+      description:  { type: varchar(255) }
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_comment_user_id:        [user_id]
+      fk_question_comment_question_id:    [question_id]
+    foreignKeys:
+      fk_question_comment_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_comment_question_id:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  Answer:
+    columns:
+      _attributes:  { phpName: Answer }
+      id:           { type: integer,     primary: true, autoincrement: true }
+      user_id:      { type: integer,     required: true }
+      question_id:  { type: integer,     required: true }
+      answer:       { type: longvarchar, required: true }
+      offensive:    { type: integer,     required: true, default: 0 }
+      bestAnswer:   { type: boolean,     required: true, default: false }
+      upvotes:      { type: integer,     required: true, default: 0 }
+      downvotes:    { type: integer,     required: true, default: 0 }
+      visible:      { type: integer,     required: true, default: 1 }
+      visited:      { type: integer,     required: true, default: 0 }
+      created_at:   { type: timestamp,   required: true }
+      updated_at:   { type: timestamp,   required: true }
+    indexes:
+      post_created:        [created_at]
+      fk_answer_user:      [user_id]
+      fk_answer_question:  [question_id]
+    foreignKeys:
+      fk_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  AnswerComment:
+    columns:
+      _attributes:  { phpName: AnswerComment }
+      id:           ~
+      description:  { type: varchar(255) }
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_comment_user_id:        [user_id]
+      fk_answer_comment_answer_id:      [answer_id]
+    foreignKeys:
+      fk_answer_comment_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_comment_answer_id:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  QuestionVote:
+    columns:
+      _attributes:  { phpName: QuestionVote }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      weight:       { type: integer,   required: true }
+      positive:     { type: boolean }
+      negative:     { type: boolean }
+      user_ip:      { type: longvarchar }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_vote_user:   [user_id]
+      fk_question_vote_question:  [question_id]
+    foreignKeys:
+      fk_question_vote_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_vote_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  AnswerVote:
+    columns:
+      _attributes:  { phpName: AnswerVote }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      weight:       { type: integer,   required: true }
+      positive:     { type: boolean }
+      negative:     { type: boolean }
+      user_ip:      { type: longvarchar }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_vote_user:   [user_id]
+      fk_answer_vote_answer:  [answer_id]
+    foreignKeys:
+      fk_answer_vote_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_vote_answer:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  UserFavorite:
+    columns:
+      _attributes:  { phpName: UserFavorite }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_user_favorite_user_profile:   [user_id]
+      fk_user_favorite_question:  [question_id]
+    foreignKeys:
+      fk_user_favorite_user_profile:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_user_favorite_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  UserTag:
+    columns:
+      _attributes:   { phpName: UserTag }
+      id:            ~
+      tag_id:        { type: integer, required: true }
+      user_id:       { type: integer, required: true }
+      positive:      { type: boolean }
+      negative:      { type: boolean }
+    indexes:
+      fk_tag_user_tag:     [tag_id]
+      fk_user_id_user_tag: [user_id]
+    foreignKeys:
+      fk_user_id_user_tag:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_tag_user_tag:
+        foreignTable: sf_tag
+        references:
+          - { local: tag_id, foreign: id }
+
+  ExperienceTemplates:
+   columns:
+      _attributes:  { phpName: ExperienceTemplates }
+      id:           ~
+      experience:   { type: integer  }
+      value:        { type: longvarchar }
+
+  InformationTemplates:
+    columns:
+      _attributes:  { phpName: InformationTemplates }
+      id:           ~
+      value:        { type: longvarchar   }
+      exp_date:     { type: timestamp }
+
+  CustomTemplates:
+    columns:
+      _attributes:  { phpName: CustomTemplates }
+      id:           ~
+      name:         { type: varchar(256) }
+      value:        { type: longvarchar }
+
+  CheckInformation:
+    columns:
+      _attributes:  { phpName: CheckInformation }
+      id:              ~
+      user_id:         { type: integer }
+      information_id:  { type: integer }
+    indexes:
+      fk_check_user_id:     [user_id]
+      fk_check_information_id: [information_id]
+    foreignKeys:
+      fk_check_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_check_information_id:
+        foreignTable: information_templates
+        references:
+          - { local: information_id, foreign: id }
+
+  UserMessage:
+    columns:
+      _attributes:  { phpName: UserMessage }
+      id:           ~
+      user_id:      { type: integer }
+      message:      { type: longvarchar }
+
+  AnswerOffensive:
+    columns:
+      _attributes:  { phpName: AnswerOffensive }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_offensive_user:   [user_id]
+      fk_answer_offensive_answer:  [answer_id]
+    foreignKeys:
+      fk_answer_offensive_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_offensive_answer:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  QuestionOffensive:
+    columns:
+      _attributes:  { phpName: QuestionOffensive }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_offensive_user:   [user_id]
+      fk_question_offensive_question:  [question_id]
+    foreignKeys:
+      fk_question_offensive_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_offensive_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  Tooltips:
+    columns:
+      _attributes: { phpName: Tooltips }
+      id:          ~
+      key:         { type: varchar(255) }
+      value:       { type: longvarchar }
+
+  Award:
+    columns:
+      _attributes:  { phpName: Award }
+      id:           ~
+      name:         { type: varchar(25) }
+      type:         { type: varchar(25) }
+      description:  { type: varchar(255) }
+      created_at:   { type: timestamp, required: true }
+
+  UserAward:
+    columns:
+      _attributes:          { phpName: UserAward }
+      user_id:              { type: integer,   required: true, primaryKey: true }
+      award_id:             { type: integer,   required: true, primaryKey: true }
+      notification_sent:    { type: tinyint,   required: true, default: 0 }
+      created_at:           { type: timestamp, required: true }
+    indexes:
+      fk_award_user: [user_id]
+      fk_award_id:   [award_id]
+    foreignKeys:
+      fk_award_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_award_id:
+        foreignTable: award
+        references:
+          - { local: award_id, foreign: id }
+
+  WebsiteTips:
+    columns:
+      _attributes: { phpName: WebsiteTips }
+      id:          ~
+      title:       { type: varchar(50) }
+      description: { type: varchar(150) }
+      body:        { type: longvarchar }
+      active:      { type: tinyint, default 1 }
+      created_at:   ~
+
+  ProcessLog:
+    columns:
+      _attributes: { phpName: ProcessLog }
+      id:          ~
+      name:        { type: varchar(100) }
+      description: { type: longvarchar }
+      created_at:   ~
+
+  MemberReferral:
+    columns:
+      _attributes: { phpName: MemberReferral }
+      id:                   ~
+      user_id:              { type: integer,   required: true }
+      email:                { type: varchar(64),  required: true }
+      hash:                 { type: varchar(64),  required: true }
+      new_member:           { type: tinyint, default 0 }
+      active:               { type: tinyint, default 0 }
+      created_at:           ~
+      updated_at:           ~
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  QuestionClosed:
+    columns:
+      _attributes: { phpName: QuestionClosed }
+      id:                   ~
+      question_id:          { type: integer, required: true }
+      reason_type:          { type: varchar(45), required: true }
+      reason_text:          { type: longvarchar, required: true }
+      created_at:           ~
+    foreignKeys:
+      -
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  GearCategory:
+    columns:
+      _attributes: { phpName: GearCategory }
+      id:                   ~
+      primary:              { type: varchar(45), required: true }
+      secondary:            { type: varchar(45), required: true }
+      sub1:                 { type: varchar(45), required: true }
+      sub2:                 { type: varchar(45), required: true }
+      created_at:           ~
+      updated_at:           ~
+
+  GearCompany:
+    columns:
+      _attributes: { phpName: GearCompany }
+      id:                   ~
+      name:                 { type: varchar(75), required: true }
+      full_name:            { type: varchar(100), required: true }
+      visible:              { type: tinyint, required: true, default: 0 }
+      created_at:           ~
+      updated_at:           ~
+      
+  GearCompanyInfo:
+    columns:
+      _attributes: { phpName: GearCompanyInfo }
+      id:           ~
+      company_id:   { type: integer, required: true }
+      user_id:      { type: integer, required: true }
+      about:        { type: longvarchar, required: true }
+      website:      { type: varchar(255), required: true }
+      ip:           { type: varchar(20), required: true }
+      created_at:   ~
+    indexes:
+      FK_gear_company_info_1:   [company_id]
+      FK_gear_company_info_2:   [user_id]
+    foreignKeys:
+      FK_gear_company_info_1:
+        foreignTable: gear_company
+        references:
+          - { local: company_id, foreign: id }
+      FK_gear_company_info_2:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  Gear:
+    columns:
+      _attributes: { phpName: Gear }
+      id:                   ~
+      name:                 { type: varchar(75), required: true }
+      search_name:          { type: varchar(75), required: true }
+      category_id:          { type: integer, required: true }
+      company_id:           { type: integer, required: true }
+      ad_id:                { type: integer, required: true }
+      section:              { type: varchar(45), required: true }
+      visible:              { type: tinyint, required: true, default: 0 }
+      created_at:           ~
+      updated_at:           ~
+    indexes:
+      fk_gear_1:        [category_id]
+      fk_company_id:    [company_id]
+    foreignKeys:
+      fk_gear_1:
+        foreignTable: gear_category
+        references:
+          - { local: category_id, foreign: id }
+      fk_company_id:
+        foreignTable: gear_company
+        references:
+          - { local: company_id, foreign: id }
+
+  GearInfo:
+    columns:
+      _attributes:  { phpName: GearInfo }
+      id:           ~
+      gear_id:      { type: integer, required: true }
+      user_id:      { type: integer, required: true }
+      about:        { type: longvarchar, required: true }
+      specs:        { type: longvarchar, required: true }
+      ip:           { type: varchar(20), required: true }
+      created_at:   ~
+    indexes:
+      FK_gear_info_1:   [gear_id]
+      FK_gear_info_2:   [user_id]
+    foreignKeys:
+      FK_gear_info_1:
+        foreignTable: gear
+        references:
+          - { local: gear_id, foreign: id }
+      FK_gear_info_2:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  GearTag:
+    columns:
+      _attributes:  { phpName: GearTag }
+      id:           ~
+      gear_id:      { type: integer,   required: true }
+      tag_id:       { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_gear_id:   [gear_id]
+      fk_tag_id:    [tag_id]
+    foreignKeys:
+      fk_gear_tag_tag_id:
+        foreignTable: gear
+        references:
+          - { local: gear_id, foreign: id }
+      fk_gear_tag_gear_id:
+        foreignTable: sf_tag
+        references:
+          - { local: tag_id, foreign: id }
+
+  GearCompanyTag:
+    columns:
+      _attributes:  { phpName: GearCompanyTag }
+      id:           ~
+      company_id:   { type: integer,   required: true }
+      tag_id:       { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      gear_company_tag_company:   [company_id]
+      gear_company_tag_tag:       [tag_id]
+    foreignKeys:
+      fk_gear_company_tag_tag_id:
+        foreignTable: gear_company
+        references:
+          - { local: company_id, foreign: id }
+      fk_gear_company_tag_company_id:
+        foreignTable: sf_tag
+        references:
+          - { local: tag_id, foreign: id }
+
+  GearReview:
+    columns:
+      _attributes: { phpName: GearReview }
+      id:                   ~
+      gear_id:              { type: integer, required: true }
+      user_id:              { type: integer, required: true }
+      type:                 { type: tinyint, required: true }
+      url:                  { type: longvarchar, required: true }
+      title:                { type: varchar(150), required: true }
+      summary:              { type: longvarchar, required: true }
+      review:               { type: longvarchar, required: true }
+      visible:              { type: tinyint, required: true, default: 0 }
+      published_date:       { type: timestamp, required: true }
+      created_at:           ~
+      updated_at:           ~
+    indexes:
+      fk_gear_id:       [gear_id]
+      fk_user_id:       [user_id]
+    foreignKeys:
+      fk_gear_id:
+        foreignTable: gear
+        references:
+          - { local: gear_id, foreign: id }
+      fk_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  UserGear:
+    columns:
+      _attributes: { phpName: UserGear }
+      user_id:              { type: integer, required: true, primaryKey: true }
+      gear_id:              { type: integer, required: true, primaryKey: true }
+      user_has:             { type: tinyint, required: true, default: 0 }
+      user_wants:           { type: tinyint, required: true, default: 0 }
+      user_had:             { type: tinyint, required: true, default: 0 }
+      created_at:           ~
+      updated_at:           ~
+    indexes:
+      fk_user_gear_user_id:       [user_id]
+      fk_user_gear_gear_id:       [gear_id]
+    foreignKeys:
+      fk_user_gear_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_user_gear_gear_id:
+        foreignTable: gear
+        references:
+          - { local: gear_id, foreign: id }
+
+  Offensive:
+    columns:
+      _attributes: { phpName: Offensive }
+      id:                   ~
+      type:                 { type: varchar(100), required: true }
+      key:                  { type: integer, required: true }
+      user_id:              { type: integer, required: true }
+      reason:               { type: varchar(100), required: true, default: offensive }
+      created_at:           ~
+    indexes:
+      fk_offensive_user_id:       [user_id]
+    foreignKeys:
+      fk_offensive_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  RecentActivity:
+    columns:
+      _attributes: { phpName: RecentActivity }
+      id:                   ~
+      user_id:              { type: integer, required: true }
+      gear_id:              { type: integer }
+      company_id:           { type: integer }
+      question_id:          { type: integer }
+      answer_id:            { type: integer }
+      activity:             { type: varchar(45), required: true }
+      created_at:           ~
+    indexes:
+      FK_recent_activity_1:       [user_id]
+    foreignKeys:
+      FK_recent_activity_1:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  ProfileViews:
+    columns:
+      _attributes: { phpName: ProfileViews }
+      id:                   ~
+      user_id:              { type: integer }
+      ip:                   { type: integer }
+      created_at:           ~
+    indexes:
+      Index_2:      [ip]
+
+  StudioCategories:
+    columns:
+      _attributes: { phpName: StudioCategories }
+      id:                   ~
+      key:                  { type: varchar(30) }
+      name:                 { type: varchar(30) }
+
+  AffiliateClick:
+    columns:
+      _attributes: { phpName: AffiliateClick }
+      id:                   ~
+      user_id:              { type: integer, required: true }
+      affiliate_id:         { type: integer, required: true }
+      gear_id:              { type: integer, required: true }
+      created_at:           ~
+    foreignKeys:
+      fk_affiliate_click_1:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_affiliate_click_2:
+        foreignTable: gear
+        references:
+          - { local: gear_id, foreign: id }

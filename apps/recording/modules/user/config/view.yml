@@ -1,0 +1,8 @@
+filterUsersSuccess:
+  has_layout:     off
+
+indexSuccess:
+#  javascripts:    [ type_watch-2.0.js ]
+  metas:
+    title:          Member Search - <?php echo sfConfig::get('app_domain_name')."\n" ?>
+    description:    Find other members and see where you rank in the worlds best online recording community.

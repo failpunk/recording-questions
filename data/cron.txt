@@ -1,0 +1,11 @@
+MAILTO=""
+*/5 * * * * cd /home/record/production/ && ./symfony recording:awards --env=prod
+0 */6 * * * cd /home/record/production/ ./sphinx-reindex.sh
+0 1 * * * cd /home/record/production/ && ./symfony recording:sitemap --env=prod
+0 2 * * * cd /home/record/production/ && ./symfony recording:mail --env=prod
+0 3 * * * cd /home/record/production/ && ./symfony recording:utility stats --env=prod
+0 3 * * 0 cd /home/record/production/ && ./symfony recording:utility recalc --env=prod
+0 0 * * * cd /home/record/production/ && ./symfony recording:utility backup --env=prod
+*/5 * * * * cd /home/record/production/ && ./symfony recording:utility tweet --env=prod
+0 4 * * * cd /home/record/production/ && ./symfony recording:cj --env=prod
+0 0 * * 6 cd /home/record/production/ && ./symfony recording:utility newsletter-sync --env=prod

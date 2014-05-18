@@ -1,0 +1,14 @@
+methods:
+  post:
+    - "comment_captcha"
+
+names:
+  comment_captcha:
+    required: true
+    required_msg: Enter characters from image
+    validators: fnCaptcha
+
+fnCaptcha:
+  class: fpCaptchaValidator
+  param:
+    captcha_error:  Entered characters are wrong, try again

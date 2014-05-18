@@ -1,0 +1,37 @@
+﻿truncate table answer_vote;
+truncate table answer_offensive;
+truncate table answer_comment;
+truncate table answer;
+truncate table user_award;
+truncate table award;
+truncate table check_information;
+truncate table custom_templates;
+truncate table experience_templates;
+truncate table information_templates;
+truncate table member_referral;
+truncate table openid;
+truncate table process_log;
+truncate table question_vote;
+truncate table question_offensive;
+truncate table question_comment;
+truncate table question_closed;
+truncate table user_favorite;
+truncate table question;
+truncate table recent_tag;
+truncate table rpx_auth;
+truncate table user_tag;
+truncate table sf_tag;
+truncate table sf_tagging;
+truncate table tooltips;
+truncate table user_experience;
+truncate table website_tips;
+truncate table user_message;
+truncate table user;
+
+
+
+truncate table user_gear;
+truncate table gear;
+truncate table gear_category;
+truncate table gear_company;
+truncate table gear_review;

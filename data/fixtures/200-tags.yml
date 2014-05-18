@@ -1,0 +1,640 @@
+Tag:
+  Tag_8:
+    name: songs
+    is_triple: '0'
+  Tag_10:
+    name: multi-track
+    is_triple: '0'
+  Tag_123:
+    name: show
+  Tag_124:
+    name: must
+  Tag_127:
+    name: ert
+    is_triple: '0'
+  Tag_137:
+    name: digidesign
+    is_triple: '0'
+  Tag_173:
+    name: focusrite
+    is_triple: '0'
+  Tag_174:
+    name: edirol
+  Tag_175:
+    name: compressor
+    is_triple: '0'
+  Tag_176:
+    name: limiter
+    is_triple: '0'
+  Tag_177:
+    name: de-esser
+    is_triple: '0'
+  Tag_178:
+    name: soundcard
+    is_triple: '0'
+  Tag_179:
+    name: record
+    is_triple: '0'
+  Tag_181:
+    name: computer
+    is_triple: '0'
+  Tag_182:
+    name: recorder
+    is_triple: '0'
+  Tag_183:
+    name: PC
+    is_triple: '0'
+  Tag_184:
+    name: stereo
+    is_triple: '0'
+  Tag_185:
+    name: audio
+    is_triple: '0'
+  Tag_186:
+    name: card
+    is_triple: '0'
+  Tag_187:
+    name: software
+    is_triple: '0'
+  Tag_188:
+    name: mixer
+    is_triple: '0'
+  Tag_189:
+    name: processors
+    is_triple: '0'
+  Tag_190:
+    name: Mastering
+    is_triple: '0'
+  Tag_191:
+    name: 'R&B'
+    is_triple: '0'
+  Tag_192:
+    name: Wav
+    is_triple: '0'
+  Tag_193:
+    name: compression
+    is_triple: '0'
+  Tag_194:
+    name: acoustic-guitar
+    is_triple: '0'
+  Tag_195:
+    name: rate
+    is_triple: '0'
+  Tag_196:
+    name: SRC
+    is_triple: '0'
+  Tag_198:
+    name: recording
+    is_triple: '0'
+  Tag_199:
+    name: packages
+    is_triple: '0'
+  Tag_200:
+    name: video
+    is_triple: '0'
+  Tag_201:
+    name: volume
+    is_triple: '0'
+  Tag_202:
+    name: audacity
+    is_triple: '0'
+  Tag_203:
+    name: vocals
+    is_triple: '0'
+  Tag_204:
+    name: song
+    is_triple: '0'
+  Tag_205:
+    name: cubase
+    is_triple: '0'
+  Tag_206:
+    name: Realtek
+    is_triple: '0'
+  Tag_207:
+    name: sound-card
+    is_triple: '0'
+  Tag_208:
+    name: mix
+    is_triple: '0'
+  Tag_209:
+    name: windows
+    is_triple: '0'
+  Tag_210:
+    name: shure
+  Tag_211:
+    name: blue
+  Tag_212:
+    name: audio-technica
+  Tag_213:
+    name: rode
+  Tag_214:
+    name: akg
+  Tag_215:
+    name: neumann
+  Tag_216:
+    name: studio-projects
+  Tag_217:
+    name: se-electronics
+  Tag_218:
+    name: m-audio
+  Tag_219:
+    name: behringer
+  Tag_220:
+    name: cad
+  Tag_221:
+    name: mxl
+  Tag_222:
+    name: samson
+  Tag_223:
+    name: royer-labs
+  Tag_224:
+    name: beyerdynamic
+  Tag_225:
+    name: sennheiser
+  Tag_226:
+    name: schoeps
+  Tag_227:
+    name: crown
+  Tag_228:
+    name: earthworks
+  Tag_229:
+    name: universal-audio
+  Tag_230:
+    name: grace-design
+  Tag_231:
+    name: summit
+  Tag_232:
+    name: true-systems
+  Tag_233:
+    name: mackie
+  Tag_234:
+    name: avalon
+  Tag_235:
+    name: joemeek
+  Tag_236:
+    name: solid-state-logic
+  Tag_237:
+    name: dbx
+  Tag_238:
+    name: art
+  Tag_239:
+    name: presonus
+  Tag_240:
+    name: symetrix
+  Tag_241:
+    name: aphex
+  Tag_242:
+    name: rolls
+  Tag_243:
+    name: ion
+  Tag_244:
+    name: roland
+  Tag_245:
+    name: tascam
+  Tag_246:
+    name: alesis
+  Tag_247:
+    name: hhb
+  Tag_248:
+    name: numark
+  Tag_249:
+    name: denon
+  Tag_250:
+    name: marantz
+  Tag_251:
+    name: lexicon
+  Tag_252:
+    name: eventide
+  Tag_253:
+    name: yamaha
+  Tag_254:
+    name: tc-electronic
+  Tag_255:
+    name: sabine
+  Tag_256:
+    name: korg
+  Tag_257:
+    name: boss
+  Tag_258:
+    name: zoom
+  Tag_259:
+    name: fostex
+  Tag_260:
+    name: euphonix
+  Tag_261:
+    name: benchmark
+  Tag_262:
+    name: apogee
+  Tag_263:
+    name: motu
+  Tag_264:
+    name: native-instruments
+  Tag_265:
+    name: emu
+  Tag_266:
+    name: sound-devices
+  Tag_267:
+    name: ik-multimedia
+  Tag_268:
+    name: digigram
+  Tag_269:
+    name: echo
+  Tag_270:
+    name: steinberg
+  Tag_271:
+    name: sibelius
+  Tag_272:
+    name: celemony
+  Tag_273:
+    name: bias
+  Tag_274:
+    name: apple
+  Tag_275:
+    name: sony
+  Tag_276:
+    name: makemusic
+  Tag_277:
+    name: propellerhead
+  Tag_278:
+    name: cakewalk
+  Tag_279:
+    name: image-line
+  Tag_280:
+    name: adobe
+  Tag_281:
+    name: izotope
+  Tag_282:
+    name: notion-music
+  Tag_283:
+    name: line-6
+  Tag_284:
+    name: waves
+  Tag_285:
+    name: pioneer
+  Tag_286:
+    name: gemini-sound
+  Tag_287:
+    name: ortofon
+  Tag_288:
+    name: hercules
+  Tag_289:
+    name: adam-audio
+  Tag_290:
+    name: avantone
+  Tag_291:
+    name: blue-sky
+  Tag_292:
+    name: dynaudio
+  Tag_293:
+    name: focal
+  Tag_294:
+    name: genelec
+  Tag_295:
+    name: jbl
+  Tag_296:
+    name: tannoy
+  Tag_297:
+    name: triple-p-designs
+  Tag_298:
+    name: direct-sound
+  Tag_299:
+    name: etymotic-research
+  Tag_300:
+    name: teac
+  Tag_301:
+    name: tapco
+  Tag_302:
+    name: a-designs
+  Tag_303:
+    name: atlas-sound
+  Tag_304:
+    name: coleman-audio
+  Tag_305:
+    name: crane-song
+  Tag_306:
+    name: dangerous-music
+  Tag_307:
+    name: drawmer
+  Tag_308:
+    name: galaxy
+  Tag_309:
+    name: hear-technologies
+  Tag_310:
+    name: hosa
+  Tag_311:
+    name: martinsound
+  Tag_312:
+    name: pro-co
+  Tag_313:
+    name: stewart-audio
+  Tag_314:
+    name: aviom
+  Tag_315:
+    name: furman
+  Tag_316:
+    name: langevin
+  Tag_317:
+    name: rane
+  Tag_318:
+    name: allen-heath
+  Tag_319:
+    name: ashly
+  Tag_320:
+    name: audient
+  Tag_321:
+    name: chandler
+  Tag_322:
+    name: manley
+  Tag_323:
+    name: midas
+  Tag_324:
+    name: peavey
+  Tag_325:
+    name: soundcraft
+  Tag_326:
+    name: spirit
+  Tag_327:
+    name: tl-audio
+  Tag_328:
+    name: toft-audio
+  Tag_329:
+    name: tube-tech
+  Tag_330:
+    name: gator
+  Tag_331:
+    name: skb
+  Tag_332:
+    name: stanton
+  Tag_333:
+    name: whirlwind
+  Tag_334:
+    name: api
+  Tag_335:
+    name: daking
+  Tag_336:
+    name: gml
+  Tag_337:
+    name: great-river
+  Tag_338:
+    name: groove-tubes
+  Tag_339:
+    name: millennia
+  Tag_340:
+    name: rupert-neve-designs
+  Tag_341:
+    name: vintech
+  Tag_342:
+    name: aea
+  Tag_343:
+    name: bbe
+  Tag_344:
+    name: alto
+  Tag_345:
+    name: digitech
+  Tag_346:
+    name: moog
+  Tag_347:
+    name: tc-helicon
+  Tag_348:
+    name: taylor
+  Tag_349:
+    name: rme
+  Tag_350:
+    name: antelope-audio
+  Tag_351:
+    name: horita
+  Tag_352:
+    name: lucid
+  Tag_353:
+    name: raxxess
+  Tag_354:
+    name: auralex
+  Tag_355:
+    name: primacoustic
+  Tag_356:
+    name: clearsonic
+  Tag_357:
+    name: countryman
+  Tag_358:
+    name: ebtech
+  Tag_359:
+    name: radial
+  Tag_360:
+    name: switchcraft
+  Tag_361:
+    name: takamine
+  Tag_362:
+    name: tech-21
+  Tag_363:
+    name: neutrik
+  Tag_364:
+    name: apc
+  Tag_365:
+    name: monster
+  Tag_366:
+    name: akai
+  Tag_367:
+    name: casio
+  Tag_368:
+    name: dunlop
+  Tag_369:
+    name: electro-harmonix
+  Tag_370:
+    name: elektron
+  Tag_371:
+    name: glyph
+  Tag_372:
+    name: novation
+  Tag_373:
+    name: voodoo-lab
+  Tag_374:
+    name: ableton
+  Tag_375:
+    name: protools
+  Tag_376:
+    name: cubase-5
+  Tag_377:
+    name: logic
+  Tag_378:
+    name: logic-8
+  Tag_379:
+    name: digital-performer
+  Tag_380:
+    name: sonar
+  Tag_381:
+    name: sonar-8
+  Tag_382:
+    name: nuendo
+  Tag_383:
+    name: sound-forge
+  Tag_384:
+    name: fl-studio
+  Tag_385:
+    name: wavelab
+  Tag_386:
+    name: acid
+  Tag_387:
+    name: samplitude
+  Tag_388:
+    name: cinescore
+  Tag_389:
+    name: steinberg-sequel
+  Tag_390:
+    name: liquid-mix
+  Tag_391:
+    name: bias-peak
+  Tag_392:
+    name: reason
+  Tag_393:
+    name: mcdsp
+  Tag_394:
+    name: bomb-factory
+  Tag_395:
+    name: fxpansion
+  Tag_396:
+    name: hal-leonard
+  Tag_397:
+    name: kurzweil
+  Tag_398:
+    name: larry-seyer
+  Tag_399:
+    name: prosoniq
+  Tag_400:
+    name: sample-logic
+  Tag_401:
+    name: serato
+  Tag_402:
+    name: sonnox
+  Tag_403:
+    name: toontrack
+  Tag_404:
+    name: trillium-lane-labs
+  Tag_405:
+    name: urs
+  Tag_406:
+    name: vienna-symphonic
+  Tag_407:
+    name: vital-arts
+  Tag_408:
+    name: vox
+  Tag_409:
+    name: waldorf
+  Tag_410:
+    name: wavearts
+  Tag_411:
+    name: yellow-tools
+  Tag_412:
+    name: zero-g
+  Tag_413:
+    name: east-west
+  Tag_414:
+    name: big-fish
+  Tag_415:
+    name: pg-music
+  Tag_416:
+    name: audio-ease
+  Tag_417:
+    name: minnetonka
+  Tag_418:
+    name: peterson
+  Tag_419:
+    name: roxio
+  Tag_420:
+    name: magma
+  Tag_421:
+    name: vestax
+  Tag_422:
+    name: cme
+  Tag_423:
+    name: jl-cooper
+  Tag_424:
+    name: ati
+  Tag_425:
+    name: josephson
+  Tag_426:
+    name: mercenary-audio
+  Tag_427:
+    name: airfield-audio
+  Tag_428:
+    name: empirical-labs
+  Tag_429:
+    name: horch
+  Tag_430:
+    name: jcf-audio
+  Tag_431:
+    name: john-hardy
+  Tag_432:
+    name: little-labs
+  Tag_433:
+    name: prism-sound
+  Tag_434:
+    name: spl-electronics
+  Tag_435:
+    name: telefunken
+  Tag_468:
+    name: bugs
+    is_triple: '0'
+  Tag_469:
+    name: problems
+    is_triple: '0'
+  Tag_470:
+    name: help
+    is_triple: '0'
+  Tag_471:
+    name: report-bug
+    is_triple: '0'
+  Tag_472:
+    name: site
+    is_triple: '0'
+  Tag_473:
+    name: suggestions
+    is_triple: '0'
+  Tag_474:
+    name: ideas
+    is_triple: '0'
+  Tag_475:
+    name: feedback
+    is_triple: '0'
+
+# Tags on the static questions
+Tagging:
+  Tagging_1:
+    tag_id: Tag_268
+    taggable_model: Question
+    taggable_id: '1'
+  Tagging_2:
+    tag_id: Tag_269
+    taggable_model: Question
+    taggable_id: '1'
+  Tagging_3:
+    tag_id: Tag_270
+    taggable_model: Question
+    taggable_id: '1'
+  Tagging_4:
+    tag_id: Tag_271
+    taggable_model: Question
+    taggable_id: '1'
+  Tagging_5:
+    tag_id: Tag_272
+    taggable_model: Question
+    taggable_id: '1'
+  Tagging_6:
+    tag_id: Tag_270
+    taggable_model: Question
+    taggable_id: '2'
+  Tagging_7:
+    tag_id: Tag_273
+    taggable_model: Question
+    taggable_id: '2'
+  Tagging_8:
+    tag_id: Tag_274
+    taggable_model: Question
+    taggable_id: '2'
+  Tagging_9:
+    tag_id: Tag_272
+    taggable_model: Question
+    taggable_id: '2'
+  Tagging_10:
+    tag_id: Tag_275
+    taggable_model: Question
+    taggable_id: '2'

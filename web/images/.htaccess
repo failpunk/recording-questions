@@ -1,0 +1,5 @@
+# add future expires headers to static files
+<FilesMatch "\.(gif)$">
+  ExpiresActive On
+  ExpiresDefault "access plus 3 months"
+</FilesMatch>

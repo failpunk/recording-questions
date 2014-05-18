@@ -1,0 +1,79 @@
+@media handheld, projection, screen {
+
+/*------------------------------------------------------------------
+[ IE.CSS ] Stylesheet For Internet Explorer Only
+--------------------------------------------------------------------
+
+[Table of contents]
+
+1. GENERAL FIXES
+2. FORMS FIXES
+3. PLUGINS FIXES
+
+--------------------------------------------------------------------
+
+[?] HELP
+
+* html div -------> IE6 and lower
+html>body div ---> IE7 and higher
+
+
+/*------------------------------------------------------------------
+1. GENERAL FIXES
+------------------------------------------------------------------*/
+
+* html ul li { height: 1% } /* Prevents <li> overheight */
+* html ol li { height: auto }
+
+img { -ms-interpolation-mode: bicubic } /* Soften resized images - IE7+ */
+
+/*----------------------------------------------------------------*/
+
+* html ol#searchResults li { height: 1% }
+
+* html ul.tags li.title { left: -30px; line-height: 1em }
+ol#searchResults li ul.tags li.title { line-height: 1em }
+
+html>body #recentTags ul li, html>body #awardedUsers ul li, html>body .list-profile li, html>body .list-stats li { height: 1% }
+
+* html .post, .list-profile li p.user-win, .list-stats li p.user-win { height: 1% }
+			
+
+/*------------------------------------------------------------------
+2. FORMS FIXES
+------------------------------------------------------------------*/
+
+button.button, input.submit { overflow: visible; width: 1 } /* Reset button size */
+input.radio, input.checkbox { margin: -4px } /* Fix for extra margins */
+input.text { margin-bottom: -1px; margin-top: -1px; overflow: hidden; position: relative; z-index: 9999 } /* Fix text inputs position */
+textarea { overflow: auto !important } /* Fix IE6 Textarea */
+
+ol.fieldset li.field { height: 1% }
+
+* html form.set-account p.checkbox input { left: -22px }
+
+form.set-account p.checkbox input { top: -2px; }
+
+
+/*------------------------------------------------------------------
+3. PLUGINS FIXES
+------------------------------------------------------------------*/
+
+.replace, .br { line-height: 1 }
+
+/* "Bars" navigation */
+ul.bars li:before { content: '' !important }
+ul.bars li { border-left: 1px solid; color: #c2c2c2; padding: 0 10px;  }
+ul#userLog.bars li {color: #bbdb87; }
+ul#userLog.bars li.first {color: #fff; }
+
+/* Clearfix */
+.clearfix { zoom: 1; display: block }
+* html .clearfix { height: 1% }
+
+
+/*------------------------------------------------------------------
+   End CSS
+------------------------------------------------------------------*/
+
+}/* end @media */

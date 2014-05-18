@@ -1,0 +1,35 @@
+﻿-- get user accounts to consolidate
+SELECT * FROM `user` u where display_name = 'Kerazy Steve';
+
+-- migrate records from account to deleted to consolidated account
+delete from user_tag where user_id = 250;
+delete from user_award where user_id = 250;
+delete from user_favorite where user_id = 250;
+delete from user_experience where user_id = 250;
+delete from user_message where user_id = 250;
+delete from check_information where user_id = 250;
+
+
+
+update answer set user_id = 292 where user_id = 250;
+update answer_offensive set user_id = 292 where user_id = 250;
+update answer_comment set user_id = 292 where user_id = 250;
+update answer_vote set user_id = 292 where user_id = 250;
+
+update question set user_id = 292 where user_id = 250;
+update question_offensive set user_id = 292 where user_id = 250;
+update question_comment set user_id = 292 where user_id = 250;
+update question_vote set user_id = 292 where user_id = 250;
+
+update user_tag set user_id = 292 where user_id = 250;
+update user_award set user_id = 292 where user_id = 250;
+update user_favorite set user_id = 292 where user_id = 250;
+
+update user_gear set user_id = 292 where user_id = 250;
+update gear_info set user_id = 292 where user_id = 250;
+update gear_review set user_id = 292 where user_id = 250;
+update gear_company_info set user_id = 292 where user_id = 250;
+
+
+-- delete from rpx_auth where user_id = 250;
+-- delete from user where id = 250;

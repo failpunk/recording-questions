@@ -1,0 +1,13 @@
+﻿-- top question askers
+select count(*) as count, q.user_id, u.display_name, u.email
+from question q
+join user u on u.id = q.user_id
+group by q.user_id
+order by count desc;
+
+-- top answer givers
+select count(*) as count, q.user_id, u.display_name, u.email
+from answer q
+join user u on u.id = q.user_id
+group by q.user_id
+order by count desc;

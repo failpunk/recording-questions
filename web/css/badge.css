@@ -1,0 +1,55 @@
+/* BADGE CSS */
+
+.recording-questions-badge {
+    background-color: transparent;
+    height: 90px; width: 109px;
+    padding: 3px;
+}
+    .recording-questions-badge a {
+        text-decoration: none;
+        color: white;
+    }
+    
+    .recording-questions-badge img {
+        border: none;
+    }
+
+    .recording-questions-badge p.experience-score {
+        font-size: 1.2em;
+        font-weight: bold;
+        margin: 0;
+        position: absolute;
+        text-align: center;
+        top: 35px;
+        width: 109px;
+    }
+
+
+    .recording-questions-badge.white a {
+        color: #0082CF;
+    }
+
+
+/*
+    .recording-questions-badge .avatar {
+        text-align: left;
+        float: left;
+        margin: 0;
+    }
+        .recording-questions-badge .avatar img {
+            border: 1px solid #ccc;
+            -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+            display: block;
+            height: 44px; width: 44px;
+            padding: 2px;
+        }
+
+    .recording-questions-badge .user-stats {
+        float: right;
+        text-align: right;
+    }
+
+    .recording-questions-badge .experience-score {
+        font-weight: bold;
+    }
+*/

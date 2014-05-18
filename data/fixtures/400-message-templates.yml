@@ -1,0 +1,48 @@
+ExperienceTemplates:
+  ExperienceTemplates_1:
+    experience: '100'
+    value: "<h4>You now have 100+ Experience points!</h4>\r\n<p>You have now obtained the ability to downvote other peoples posts.  Just remember, it costs you 1 experience point from your own score to cast a downvote...use them wisely.</p>"
+  ExperienceTemplates_2:
+    experience: '15'
+    value: "<h4>You now have 15+ Experience points!</h4>\r\n<p>You've obtained new abilities on the site:</p>\r\n<ul><li>You can now upvote other peoples posts (You may cast up to 30 votes per day)</li><li>You can now mark posts as offensive.</li></ul>"
+  ExperienceTemplates_3:
+    experience: '50'
+    value: "<h4>You now have 50+ Experience points!</h4>\r\n<p>You've obtained the ability to leave comments on other peoples questions and answers.</p>"
+Tooltips:
+  Tooltips_1:
+    key: vote_self_question
+    value: 'You can''t vote for your own question.'
+  Tooltips_2:
+    key: vote_unregistered_user
+    value: "You must join the community to vote.<br/>\r\n<h4><a href=\"http://martini.recordingquestions.com/recording_dev.php/auth\">Join Now!</a></h4>"
+  Tooltips_3:
+    key: vote_self_answer
+    value: 'You can''t vote for your own answer.'
+  Tooltips_4:
+    key: vote_needed_for_upvote
+    value: 'You must have 15 experience points to upvote.'
+  Tooltips_5:
+    key: vote_needed_for_downvote
+    value: 'You must have 100 experience points to downvote.'
+  Tooltips_6:
+    key: add_comment
+    value: 'You must have 50 experience points to post a comment'
+  Tooltips_7:
+    key: add_comment_by_unregistered
+    value: "You must join the community to post a comment.<br/>\r\n<h4><a href=\"http://martini.recordingquestions.com/recording_dev.php/auth\">Join Now!</a></h4>"
+  Tooltips_8:
+    key: offensive
+    value: 'You must have 15 experience points to mark a post as offensive.'
+CustomTemplates:
+  CustomTemplates_1:
+    name: guest_message
+    value: "<h4>Welcome to Recording Questions.com!</h4>\r\n<p>Since this is your first time here, take a look around and be sure to read our <a href=\"/faq/frequently-asked-questions\">F.A.Q</a> section.</p>\r\n<p>If you want to participate in the community and vote on questions and answers, we recommend that you <a href=\"/auth\">Join Now</a>.</p>"
+  CustomTemplates_2:
+    name: comment_to_answer
+    value: "<h4>Someone has left a new comment on one of your answers!</h4>\r\n<p><a href=\"/question_detail/%%answer.QuestionId%%/votes#%%answer.Id%%\">Go check out your new comment</a>.</p>"
+  CustomTemplates_3:
+    name: answer_to_question
+    value: "<h4>Someone has answered one of your questions!</h4>\r\n<p><a href=\"/question_detail/%%answer.QuestionId%%/votes#%%answer.Id%%\">Go check out your new answer</a>.</p>"
+  CustomTemplates_4:
+    name: comment_to_question
+    value: "<h4>Someone has left a new comment on one of your questions!</h4>\r\n<p><a href=\"/question_detail/%%question.Id%%/votes\">Go check out your new comment</a>.</p>"

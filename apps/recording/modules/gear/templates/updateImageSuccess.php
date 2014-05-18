@@ -1,0 +1,81 @@
+<div id="content">
+
+    <div id="main">
+
+        <h1 class="title">Upload an image for <?php echo myUtil::unslugify($image_for) ?></h1>
+
+        <div class="info">
+
+            <p class="dates">
+
+                <a href="#">Gear</a> >
+                Upload Image
+
+            </p>
+
+        </div><!-- .info -->
+
+        <p class="">
+            Ready to upload a new image for a product or company?  Ok, it's simple! <br/>
+            Search the web for the image you want to upload, right click and copy the image location, paste that URL into the text box below and hit the upload image link.  If everything looks ok, submit the image and you're done!<br/>
+            Just Remember...
+        </p>
+
+        <p style="margin-bottom: .3em;">
+            <span class="point1">
+                We can handle JPG, PNG, or GIF images.
+                <span>(keep files under 500 KB in size)</span>
+            </span>
+        </p>
+
+        <p style="margin-bottom: .3em;">
+            <span class="point1">
+                Try to keep images smaller than 1024 x 768 pixels.
+            </span>
+        </p>
+
+        <p style="margin-bottom: .3em;">
+            <span class="point1">
+                Make sure to only upload license-free images.
+            </span>
+        </p>
+        <br/>
+            
+        <h4>Upload an Image</h4>
+
+        <div id="gear-div">
+
+            <?php echo form_tag('@gear_update_image?type='.$type.'&for='.$image_for.'&id='.$id, array('id' => 'gear-add-to-db-form', 'class' => 'comment')) ?>
+
+                <div id="image-upload" class="updateImage">
+                    <input type="text" id="urlimage" class="text" autocomplete="off" value="" name="urlimage"/>
+                    <a class="upload-image" href="#">Upload Image</a>
+                    <p class="txt01">Enter the URL of an image on the web</p>
+                    <p><span class="ajax-loader" style="display:none;"><img src="/images/ajax-loader.gif" alt="Ajax-loader"/></span></p>
+                    <p class="error"></p>
+                </div>
+
+                <?php echo input_hidden_tag('upload-image-file-name') ?>
+
+                <?php echo submit_tag("Upload This Image", array('type' => 'submit', 'class' => 'submit', 'id' => 'submit_gear_button', 'style' => 'display:none;')) ?>
+
+            </form>
+
+        </div>
+
+        <?php echo input_hidden_tag('upload-file-route', url_for('@gear_upload_image')) ?>
+
+    </div><!-- / #main -->
+
+    
+    <div id="sidebar">
+
+        <?php include_partial('gear/search') ?>
+
+        <?php include_component('gear', 'companies') ?>
+
+        <?php include_component('gear', 'categories') ?>
+
+    </div><!-- / #sidebar -->
+
+</div<!-- / #content -->

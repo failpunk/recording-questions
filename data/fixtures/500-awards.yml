@@ -1,0 +1,51 @@
+Award:
+  Award_1:
+    name: upvoter
+    type: assistant
+    description: 'at least one upvote'
+    created_at: '2009-07-28 00:00:00'
+  Award_2:
+    name: downvoter
+    type: assistant
+    description: 'at least one downvote'
+    created_at: '2009-07-28 00:00:00'
+  Award_3:
+    name: fresh meat
+    type: assistant
+    description: 'at least one question'
+    created_at: '2009-07-28 00:00:00'
+  Award_4:
+    name: 'aspiring tech'
+    type: assistant
+    description: 'at least one answer'
+    created_at: '2009-07-28 00:00:00'
+  Award_5:
+    name: 'studio approval'
+    type: assistant
+    description: 'received at least one upvote on a question'
+    created_at: '2009-07-28 00:00:00'
+  Award_6:
+    name: 'runner'
+    type: assistant
+    description: 'first comment posted'
+    created_at: '2009-07-28 00:00:00'
+  Award_7:
+    name: 'active assistant'
+    type: assistant
+    description: '10 or more comments posted'
+    created_at: '2009-07-28 00:00:00'
+  Award_8:
+    name: 'up-and-coming'
+    type: assistant
+    description: 'received at least one upvote on an answer'
+    created_at: '2009-07-28 00:00:00'
+  Award_9:
+    name: 'hit record'
+    type: engineer
+    description: 'asked question in favorites 5 times'
+    created_at: '2009-07-28 00:00:00'
+  Award_10:
+    name: 'old school'
+    type: engineer
+    description: 'helped us test the site as we got it started'
+    created_at: '2009-07-28 00:00:00'

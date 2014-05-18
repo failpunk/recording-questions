@@ -1,0 +1,45 @@
+methods:
+  post:
+    - "question{title}"
+    - "question{description}"
+    - "question_tags"
+#    - "question_captcha"
+
+names:
+  question{title}:
+    required: true
+    required_msg: Please give your question a descriptive title.
+    validators: fnValidator
+
+  question{description}:
+    required: true
+    required_msg: Please describe the question in detail (the more the better).
+    validators: fnDescriptionValidator
+
+  question_tags:
+    required: true
+    required_msg: Please add a tag or two to help others find your question.
+    validators: fnValidator
+
+#  question_captcha:
+#    required: true
+#    required_msg: Please type in the characters from the image so we know you're a human.
+#    validators: fnCaptcha
+
+fnValidator:
+  class: sfStringValidator
+
+#fnCaptcha:
+#  class: fpCaptchaValidator
+#  param:
+#    captcha_error:  The characters you entered did not match the image, please double check them.
+#    credantials: []
+
+
+fnDescriptionValidator:
+  class: sfStringValidator
+  param:
+      min:       2
+      min_error: Please describe the question in more detail (15 characters minimum)
+      max:       5000
+      max_error: Please keep you description to a reasonable length (5000 characters maximum)

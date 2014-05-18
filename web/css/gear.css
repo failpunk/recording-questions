@@ -1,0 +1,414 @@
+/* Gear */
+
+/* Main Page */
+.gear div.info p.votes { 
+    padding-right: 7px;
+    cursor: pointer;
+    color: #0082CF;
+    font-weight: bold;
+}
+    
+    .gear div.info p.votes span.add {
+        left: 0;
+        right: auto;
+        background: transparent url(../images/line_votes.gif) repeat-y scroll right top;
+     }
+
+
+/* Gear Detail */
+.flag-post
+{
+	background-image: url(../images/icons.gif);
+	background-repeat: no-repeat;
+}
+
+.wrap-post.gear-post {
+    margin: 0 0 55px 175px
+}
+
+    img.gear-img { cursor: pointer; }
+
+    .gear-post span.point1, 
+    .gear-post span.point2,
+    .company-post span.point1,
+    .company-post span.point2 {
+        font-size: 1em;
+        display: block;
+    }
+
+    .facebook-like {
+      left: -150px;
+      position: absolute;
+      text-align: center;
+      top: 143px;
+    }
+    .facebook-like-gear {
+      position: absolute;
+      right: 60px;
+      top: 23px;
+    }
+
+    .wrap-post.gear-post .avatar { left: -175px; width: auto; }
+
+    .wrap-post.gear-post .add-to-profile { 
+        width: 102px;
+        position: absolute;
+        left: -175px;
+        top: 50px;
+        margin-top: 10px;
+     }
+
+        .gear-post .add-to-profile, .company-post .add-to-profile {
+            
+        }
+
+            .add-to-profile strong {
+                width: 102px;
+                display: block;
+                text-align: center;
+            }
+
+            .add-to-profile a.favorite2, .add-to-profile a.favorite { margin: 8px 0 0 37px; }
+            
+            .add-to-profile span {
+                width: 102px;
+                font-size: 11px;
+                display: block;
+                text-align: center;
+            }
+
+            #add-to-profile-options {
+                left: -139px;
+                top: 120px;
+                min-width: 0;
+                width: 95px;
+                padding: 10px 20px 10px 20px;
+                display: none;
+            }
+
+                #add-to-profile-options ul { margin: 0; list-style-type: disc; }
+                    #add-to-profile-options ul li { font-size: 11px; }
+                        #add-to-profile-options ul li a { color: #990000; }
+
+    .gear-detail .flag-gear, 
+    .company-detail .flag-gear,
+    .user-review .flag-gear {
+        position: absolute;
+        right: 0;
+        top: 12px;
+        margin-top: 10px;
+     }
+
+    .gear-detail #flag-gear-options, .company-detail #flag-gear-options {
+        right: 0;
+        top: 21px;
+        margin-top: 30px;
+        position: absolute;
+    }
+        .small-alert ul {
+            list-style-type: disc;
+            margin: 10px;
+            padding-left: 10px;
+        }
+            .small-alert ul li a { color: #990000; }
+
+    .gear-results li { padding: 0 85px 0 116px !important; }
+
+    .gear-results .avatar img {
+        height: 100px; width: 100px;
+    }
+
+    ol#searchResults.gear-results ul.tags { margin: 0 0 6px; }
+
+    ol#searchResults.gear-results ul.tags.add-gear { padding: 0; }
+
+    ol#searchResults.gear-results ul.tags.add-gear a {
+        padding: 0 0 0 20px;
+        color: #99B762;
+        font-weight: bold;
+        background-color: transparent;
+    }
+        ol#searchResults.gear-results ul.tags.add-gear a.add-to-studio,
+        ul.add-gear li.not-authenticated a {
+            background-image: url(/images/icons.gif);
+            background-repeat: no-repeat;
+            background-position: 0 -88px;
+        }
+
+        ol#searchResults.gear-results ul.tags.add-gear li.options {
+            background: #EDFBD5;
+            padding: 5px !important;
+            border: 1px solid #B8DB7B !important;
+            -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+        }
+            ol#searchResults.gear-results ul.tags.add-gear li.options a { text-decoration: underline; padding: 0 4px; }
+                ol#searchResults.gear-results ul.tags.add-gear li.options a.close { text-decoration: none; }
+
+    .ac_loading {
+        background: white url('/images/ajax-loader.gif') 225px center no-repeat !important;
+    }
+
+    .ac_results li { text-align: left; font-size: 12px; }
+
+        .ac_results ul li a {
+            display: block;
+            width: 245px;
+        }
+
+    span.result-type {
+        margin-right: 5px;
+        font-size: 11px;
+    }
+        span.result-type span  {
+            padding: 2px 4px;
+            -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+        }
+        
+            span.result-type.gear span {
+                background-color: #ACCE6E;
+                color: white;
+            }
+            span.result-type.company span {
+                background-color: #0082CF;
+                color: #EFF6F9;
+            }
+
+
+    .change-gear-image {
+        position: absolute;
+        right: 0;
+        margin-top: -110px;
+    }
+
+    li.buy-now span { 
+        background-image: url(/images/icons.gif);
+        background-repeat: no-repeat;
+        background-position: 0 -798px;
+        text-indent: -10000px;
+        position: absolute;
+        right: 0;
+        width: 138px;
+        height: 31px;
+    }
+    li.buy-now a { background-color: transparent !important; }
+    li.buy-now p.txt01 { margin: .3em 0 0 0; text-align: right; color: #4D661F; }
+
+    li.buy-now input {
+        float: right;
+        font-size: 1.4em;
+        height: 31px;
+    }
+
+
+#gear-info-div ul.list, ul.related-questions,
+#main.user-review #user-review-section { padding-top: 25px }
+
+    #specs-tab-section, #reviews-tab-section, #discuss-tab-section { display: none; }
+
+	#gear-info-div ul.list li {
+		border-top: 1px solid #e9e9e9;
+		margin-bottom: 10px;
+		padding-top: 25px;
+	}
+        ol#searchResults, ul.related-questions li ol { border: none !important; }
+            ol#searchResults li, ul.related-questions li ol li { border: none !important; }
+            #discuss-tab-section ol#searchResults li, ul.related-questions li ol li { margin-top: 0 !important; padding-top: 0; }
+
+	#gear-info-div ul.list li.first, ul.related-questions li.first {
+		border: 0;
+		padding: 0;
+	}
+		#gear-info-div ul.list li input.text, #gear-info-div ul.list li input.submit { margin: 0 0 3px }
+
+#gear-info-div h3 { font-size: 1.33em; color: black; }
+#gear-info-div h4 { font-size: 1.33em; color: #245876; margin-top: 0; }
+
+.best-answer.submission .wrap-post { margin: 0; }
+
+    .best-answer.submission form.comment p { text-align: left; }
+
+        #add-site-review textarea#summary { height: 150px; }
+        
+        #add-user-review textarea#summary { height: 75px; }
+        #add-user-review textarea#review, #add-to-db-form #about-gear { height: 200px; }
+
+    .best-answer.submission h4 { margin-top: 0; }
+
+    .best-answer.submission h5 { font-size: 1.2em !important; }
+        .best-answer.submission h5 span { color: #999999; }
+
+    .best-answer.submission p { margin: 0 0 1.33em; }
+        .best-answer.submission p input.text { padding: 7px 10px; width: 498px; }
+
+    .submission #date { width: 100px; }
+    .submission span.right, .add-gear span.right { float:right; margin-right: 85px; color: #999999; }
+
+.divider { border-top: 3px solid #999999; margin: 10px 0; }
+
+.flag-post {
+    background-position: 0 -379px;
+    padding: 2px 0 2px 23px;
+    display: block;
+    height: 19px;
+    float: right;
+    font-size: 11px;
+}
+
+#site-review-section li.no-review a,
+#user-review-section li.no-review a {
+    color: #FF7800;
+}
+
+.gear-stats p.edit-link { position: absolute; font-size:11px; left:0; top: 8px; }
+    .gear-stats p.edit-link a { text-decoration: none; cursor: pointer; }
+    .gear-stats p.edit-link a:hover { text-decoration: underline;  }
+
+/* Gear AutoComplete Dropdown */
+
+ul.inputbox li { margin-bottom: 10px; }
+
+#sidebar #gearsearch,
+#main.add-gear input.text,
+#twittername,
+#twitterpass {
+    -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+    padding: 7px;
+    color: #8C8C8C;
+    width: 235px;
+}
+
+.ac_results { width: 249px !important; }
+    .ac_results ul li a { color: #4D661F; }
+
+
+/* Companies */
+
+.wrap-post.company-post {
+    margin: 0 0 55px 0;
+}
+
+    .wrap-post.company-post span.point1,
+    .wrap-post.company-post span.point2 {
+        font-size: 11px;
+    }
+
+.company-products, .member-list {
+    padding: 0;
+    margin-bottom: 2em;
+}
+
+    .company-products ul { margin: 0; padding: 15px 4px 0 0; }
+
+        .company-products ul li {
+            margin: 0 6px 6px 0;
+            float: left;
+            text-align: center;
+        }
+
+            .company-products ul li img {
+                -moz-border-radius: 3px; -khtml-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px;
+                border: 1px solid #ccc;
+            }
+
+        .company-products ul li a span { font-size: 11px; display: block; width: 100px; }
+            .company-products ul li a span.image,
+            .gear-results span.image
+            {
+                height: 100px;
+                text-align: center;
+                margin-bottom: 3px;
+            }
+
+    .company-products p { margin-top: 10px; }
+
+
+
+
+/* Add Gear to Database */
+
+#gear-div, #gear-div .step-2 { display: block; }
+
+    #gear-div .step-3,
+    #gear-div .step-4,
+    #gear-div .step-5,
+    #submit_gear_button {
+        display: none;
+    }
+
+    #company-div .step-3 {
+        display: none;
+    }
+
+        #gear-div textarea#about-gear { height: 150px; }
+
+    #gear-div #image-upload img { margin-bottom: 10px; }
+
+#company-div { display: none; }
+
+    #company-div #about-company { height: 116px; }
+
+
+.member-list { padding: 30px 0 0; margin-bottom: 2.5em; }
+
+    .member-list .avatar { position: relative; float: left; width: 75px; }
+
+    .member-list .avatar img { width: 60px; height: 60px; }
+
+#about-section-text, #specs-section-text { width: 630px; height: 108px; }
+
+#specs-section-text { height: 285px; }
+
+#update-about-section-form, #update-specs-section-form { display: none; padding-top: 30px; }
+
+#company-about-edit { display: none; }
+
+    #company-about-edit .resizable-textarea textarea,
+    #gear-info-div .resizable-textarea textarea { height: 200px; }
+
+
+
+/* Recent Activity */
+
+ol#searchResults.activity-list li {
+    min-height: 50px;
+    margin-top: 10px;
+    border-bottom: 1px solid #E9E9E9 !important;
+}
+    .activity-list .avatar img {
+        height: 36px;
+        width: 36px;
+    }
+        .activity-list p span { color: #999999; }
+
+
+/* Ebay Listings */
+
+.ebay ol#searchResults { padding-bottom: 0; background-color: #EDFBD5; padding-top: 5px; }
+
+    .ebay ol#searchResults li { padding-right: 10px; border-bottom: 1px solid #B8DB7B !important; }
+
+        .ebay ol#searchResults h4 a { color: #617B31; }
+
+        .ebay ol#searchResults li p.link { padding-top: 10px; text-align: center; }
+
+        .ebay ol#searchResults li p.avatar { left: 5px; }
+
+        .ebay ol#searchResults li span.price {
+            font-weight: bold;
+            color: #4D661F;
+            float: right;
+            font-size: 1.7em;
+        }
+
+
+/* Gear Detail */
+
+#main.user-review #user-review-section { margin-bottom: 25px; }
+
+#main.user-review .author-info .avatar {
+    position: relative;
+    float: left;
+    margin-right: 5px;
+}
+    #main.user-review .author-info .avatar img { height: 25px; width: 25px; }
+    #main.user-review .author-info p.txt01 { padding-top: 7px; }

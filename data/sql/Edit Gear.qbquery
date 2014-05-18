@@ -1,0 +1,27 @@
+﻿SELECT * FROM gear g
+where company_id = 91
+-- where name like 'fa%'
+limit 100;
+
+SELECT * FROM gear_company g
+where name like 'm%';
+
+SELECT * FROM gear_company_tag g where company_id = 26;
+SELECT * FROM gear_company_tag g where company_id = 91;
+
+
+SELECT * FROM record_cj.affiliate_link a where company = 'fostex';
+
+
+SELECT * FROM gear g order by id desc limit 100;
+SELECT * FROM gear g where name like 'fast%';
+SELECT * FROM gear g where id = 178;
+
+SELECT * FROM gear_tag g where gear_id = 178;
+
+SELECT * FROM sf_tag s where id = 870;
+SELECT * FROM sf_tag s where name like 'skrm%';
+
+645
+SELECT * FROM record_cj.affiliate_link a where company = 'yamaha';
+SELECT * FROM record_cj.affiliate_link a where name like '%kick%' and company = 'yamaha';

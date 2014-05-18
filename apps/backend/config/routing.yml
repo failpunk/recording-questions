@@ -1,0 +1,36 @@
+information_templates:
+  class: sfPropelRouteCollection
+  options:
+    model:                InformationTemplates
+    module:               messageall
+    prefix_path:          messageall
+    column:               id
+    with_wildcard_routes: true
+user_message:
+  class: sfPropelRouteCollection
+  options:
+    model:                UserMessage
+    module:               usermessage
+    prefix_path:          usermessage
+    column:               id
+    with_wildcard_routes: true
+website_tips:
+  class: sfPropelRouteCollection
+  options:
+    model:                WebsiteTips
+    module:               tips
+    prefix_path:          tips
+    column:               id
+    with_wildcard_routes: true
+
+# default rules
+homepage:
+  url:   /
+  param: { module: default, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

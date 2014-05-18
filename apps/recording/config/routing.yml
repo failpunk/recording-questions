@@ -1,0 +1,468 @@
+# default rules
+homepage:
+  url:   /
+  param: { module: index, action: index }
+
+homepage_nav:
+  url:   /index/:nav/
+  param: { module: index, action: index }
+
+homepage_nav_pager:
+  url:   /index/:nav/*
+  param: { module: index, action: index }
+
+about:
+  url:   /about
+  param: { module: index, action: about }
+
+faq:
+  url:   /faq/frequently-asked-questions
+  param: { module: index, action: faq }
+
+privacy:
+  url:   /privacy
+  param: { module: index, action: privacy }
+
+#Rss
+
+rss_for_question_list:
+  url: /questionListRss/:nav
+  param: { module: index, action: rssForQuestionList }
+
+rss_for_question_detail:
+  url: /questionDetail/rss/:questionId
+  param: { module: question, action: rssForQuestionDetail }
+
+#homepage_nav_pager_per_page:
+#  url:   /:nav/:currentPage/:maxResultsPerPage
+#  param: { module: index, action: index }
+
+ask_question_root:
+  url:   /question
+  param: { module: question, action: askQuestionRoot }
+
+ask_question:
+  url:   /ask-a-question
+  param: { module: question, action: askQuestion }
+
+question_detail:
+  url:   /question/:question_title/:question_id
+  param: { module: question, action: questionDetail }
+
+question_detail_nav:
+  url:   /question_detail/:question_id/:nav
+  param: { module: question, action: questionDetail }
+
+
+question_detail_vote_for_answer:
+  url:   /question/updateVoteForAnswer/:answer_id/:vote
+  param: { module: question, action: updateVote }
+
+question_detail_vote_for_question:
+  url:   /question/updateVoteForQuestion/:question_id/:vote
+  param: { module: question, action: updateVoteForQuestion }
+
+question_edit:
+  url:   /questionEdit/*
+  param: { module: question, action: editQuestion }
+
+question_edit_tags:
+  url:   /questionEditTags/*
+  param: { module: question, action: editTags }
+
+get_user_voting:
+  url:   /question/getUserVoting/:question_id
+  param: { module: question, action: getUserVoting }
+  requirements: { question_id: \d+ }
+
+question_best_answer:
+  url:   /question/bestAnswer/:question_id/:answer_id
+  param: { module: question, action: bestAnswer }
+
+question_delete:
+  url:   /questionDelete/:question_title/:question_id
+  param: { module: question, action: deleteQuestion }
+
+question_undelete:
+  url:   /questionUndelete/:question_title/:question_id
+  param: { module: question, action: undeleteQuestion }
+
+question_lock:
+  url:   /questionLock/:question_id
+  param: { module: question, action: lockQuestion }
+
+question_unlock:
+  url:   /questionUnlock/:question_title/:question_id
+  param: { module: question, action: unlockQuestion }
+
+admin_delete_question:
+  url:   /questionAdminDelete/:nav
+  param: { module: question, action: adminDeleteQuestion }
+
+
+answer_question:
+  url:   /answerQuestion
+  param: { module: question, action: answerQuestion }
+
+answer_edit:
+  url:   /answerEdit/:answer_id
+  param: { module: question, action: editOwnAnswer }
+
+answer_delete:
+  url:   /answerDelete/:answer_id
+  param: { module: question, action: deleteAnswer }
+
+deleted_answers:
+  url:   /deletedAnswers
+  param: { module: index, action: deletedAnswers }
+
+deleted_answers_filter:
+  url:   /deletedAnswersFilter/:question_id
+  param: { module: index, action: deletedAnswers }
+
+deleted_answers_nav:
+  url:   /deletedAnswersNav/:nav/:currentPage/:maxResultsPerPage
+  param: { module: index, action: deletedAnswers }
+
+answer_undelete:
+  url:   /undeletedAnswers
+  param: { module: question, action: undeletedAnswers }
+
+
+# comments
+comment_delete:
+  url:   /commentDelete/:type/:comment_id
+  param: { module: question, action: deleteComment }
+
+
+# profile links
+
+profile_autocomplite_tag:
+  url:   /profile/autocompliteTag
+  param: { module: profile, action: autocomplitTags }
+
+profile_add_tag:
+  url:   /profile/addTags
+  param: { module: profile, action: addTags }
+
+profile:
+  url:   /profile/:display_name/:userId
+  param: { module: profile, action: index }
+  requirements: { id: /d+ }
+
+profile_stats:
+  url:   /profile/:display_name/stats/:userId
+  param: { module: profile, action: userStats }
+
+profile_edit:
+  url:   /profileEdit
+  param: { module: profile, action: userEdit }
+
+profile_favorite:
+  url:   /profile/:display_name/favorites/:userId
+  param: { module: profile, action: userFavorites }
+
+profile_recent:
+  url:   /profileRecent/:display_name/:userId
+  param: { module: profile, action: userActivity }
+
+profile_settings:
+  url:   /profileSettings
+  param: { module: profile, action: userSettings }
+
+profile_save_settings:
+  url:   /profileSaveSettings/:userid/*
+  param: { module: profile, action: saveSettings }
+
+profile_favorite_nav_pager:
+  url:   /profile/:display_name/favorites/:currentPage/:maxResultsPerPage/:userId
+  param: { module: profile, action: userFavorites }
+
+profile_show_question:
+  url: /showQuestion/:questionPage/:userId
+  param: { module: profile , action: showAllQuestion }
+
+authorProfile:
+  url:   /authorProfile/:userId
+  param: { module: profile, action: authorProfile }
+  
+profile_refer_a_friend:
+  url:   /profile/:display_name/referral/:userId
+  param: { module: profile, action: referFriend }
+
+email_referral_check:
+  url:   /profile/checkReferralEmail/*
+  param: { module: profile, action: checkReferralEmail }
+
+profile_send_referral:
+  url:   /profile/referral/sendReferral/:userId/*
+  param: { module: profile, action: sendReferral }
+
+email_referral_link:
+  url:   /profile/referral/trackReferral/:userId/:hash
+  param: { module: profile, action: trackReferral }
+
+profile_edit_studio_image:
+  url:   /profile/editStudioImage
+  param: { module: profile, action: editStudioImage }
+
+profile_edit_platform:
+  url:   /editProfilePlatform
+  param: { module: gear, action: updateUserPlatform }
+
+profile_badge_page:
+  url:   /profile/badge
+  param: { module: profile, action: badge }
+
+get_badge:
+  url:   /profile/badge/:user_id/:type
+  param: { module: profile, action: showBadge }
+  requirements: { user_id: \d+ }
+
+add_twitter_credientials:
+  url:   /twitterAddCredentials
+  param: { module: profile, action: addTwitterCredentials }
+
+toggle_twitter_status:
+  url:   /toggleTwitterStatus
+  param: { module: profile, action: toggleTwitterStatus }
+
+toggle_twitter_type:
+  url:   /toggleTwitterType
+  param: { module: profile, action: toggleTwitterType }
+
+
+user:
+  url:   /user/
+  param: { module: user, action: index }
+
+user_nav:
+  url:   /user/:nav/
+  param: { module: user, action: index }
+
+user_nav_pager:
+  url:   /user/:nav/:currentPage/:maxResultsPerPage
+  param: { module: user, action: index }
+
+user_filter:
+  url:   /userFilter/*
+  param: { module: user, action: filterUsers }
+
+# Recent tag
+
+recent_tag:
+  url:   /recentTag/:tag/:act
+  param: { module: index, action: recentTag }
+
+# RPX token URL
+rpx_token_url:
+  url:   /auth/RPXAuth
+  param: { module: auth, action: RPXAuth }
+
+login:
+  url:   /login
+  param: { module: auth, action: index }
+
+change_account:
+  url:   /changeAccount
+  param: { module: auth, action: changeAccount }
+
+#tags
+
+tag:
+  url:
+  param: { module: index, action: recentTag }
+
+searchByTag:
+  url:    /tagSearch/:tag
+  param:  { module: index, action: searchByTag }
+
+searchByTagPerPage:
+  url:   /tagSearch/:tag/*
+  param: { module: index, action: searchByTag }
+
+search:
+  url:   /search
+  param: { module: index, action: search }
+
+
+# awards
+
+awards:
+  url:   /award
+  param: { module: award, action: awards }
+
+
+# Gear Pages
+
+gear_add_to_studio:
+  url:   /addToStudio
+  param: { module: gear, action: addToStudio }
+
+gear_item:
+  url:   /gear/:company_name/:gear_name/:gear_id/*
+  param: { module: gear, action: gearDetail }
+  requirements: { gear_id: \d+ }
+
+gear_companies:
+  url:   /gear/companies
+  param: { module: gear, action: companies }
+
+gear_rss:
+  url:   /gear/rss
+  param: { module: gear, action: rssForGear }
+
+gear_company:
+  url:   /gear/:company_name
+  param: { module: gear, action: company }
+
+gear_company_browse:
+  url:   /gear/:company_name/products
+  param: { module: gear, action: companyGear }
+
+gear_category:
+  url:   /category/:category_name
+  param: { module: gear, action: categories }
+
+gear_search:
+  url:   /searchForGear
+  param: { module: gear, action: autocompleteSearch }
+
+gear_scraper:
+  url:   /gearScraper
+  param: { module: gear, action: scraper }
+
+gear_add_review_site:
+  url:   /addSiteReview
+  param: { module: gear, action: addSiteReview }
+
+gear_add_review_user:
+  url:   /addUserReview
+  param: { module: gear, action: addUserReview }
+
+gear_user_review_detail:
+  url:   /gear/:company_name/:gear_name/:gear_id/review/:title/:review_id
+  param: { module: gear, action: userReviewDetail }
+
+gear_add_offensive:
+  url:   /addOffensiveVote
+  param: { module: gear, action: addOffensiveVote }
+
+gear_link_gear:
+  url:   /linkGear/:gear_id
+  param: { module: gear, action: linkGear }
+  requirements: { gear_id: \d+ }
+
+gear_link_company:
+  url:   /linkCompany/:company_id
+  param: { module: gear, action: linkCompany }
+  requirements: { company_id: \d+ }
+
+gear_add_new:
+  url:   /addNewGear
+  param: { module: gear, action: addNew }
+
+gear_add_to_db:
+  url:   /addGearToDb
+  param: { module: gear, action: gearAddToDb }
+
+company_add_to_db:
+  url:   /addCompanyToDb
+  param: { module: gear, action: companyAddToDb }
+
+gear_find_company:
+  url:   /gearCompanyAutocomplete
+  param: { module: gear, action: autocompleteCompany }
+
+gear_find_gear:
+  url:   /gearGearAutocomplete
+  param: { module: gear, action: autocompleteGear }
+
+gear_upload_image:
+  url:   /gearUploadImage
+  param: { module: gear, action: uploadImage }
+
+gear_update_specs:
+  url:   /gearUpdateSpecsSection
+  param: { module: gear, action: updateSpecs }
+
+gear_update_about:
+  url:   /gearUpdateAboutSection
+  param: { module: gear, action: updateAbout }
+
+gear_update_image:
+  url:   /gearUpdateImage/:type/:for/:id
+  param: { module: gear, action: updateImage }
+  requirements: { id: \d+ }
+
+company_update_about:
+  url:   /companyUpdateAboutSection
+  param: { module: gear, action: updateCompanyAbout }
+
+gear_flag_page:
+  url:   /gearFlagPage
+  param: { module: gear, action: flagPage }
+
+gear_rencent_activity:
+  url:   /activity
+  param: { module: gear, action: recentActivity }
+
+delete_company:
+  url:   /deleteCompany
+  param: { module: gear, action: deleteCompany }
+
+large_gear_image:
+  url:   /largeGearImage
+  param: { module: gear, action: largeGearImage }
+
+gear_user_review_full:
+  url:   /gear/:company_name/:gear_name/:review_title/:review_id
+  param: { module: gear, action: getFullUserReview }
+
+gear_ebay_results:
+  url:   /getEbayResults
+  param: { module: gear, action: loadEbayResults }
+
+gear_toggle_affiliate:
+  url:   /toggleGearAffiliate
+  param: { module: gear, action: toggleGearAffiliate }
+  
+gear:
+  url:   /gear
+  param: { module: gear, action: index }
+
+
+ajax_tweet:
+  url:   /send-tweet
+  param: { module: index, action: sendTweet }
+
+  
+
+# Nice affiliate links
+affiliate_link:
+  url:   /go/:description/*
+  param: { module: gear, action: affiliateRedirect }
+
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*
+
+openid_signin:
+  url: /signin/
+  param: { module: auth, action: signin }
+
+openid_autosignin:
+  url: /autoSignin
+  param: { module: auth, action: autoSignin }
+
+openid_finishauth:
+  url: /auth/finish
+  param: { module: auth, action: finish }
+
+openid_error:
+  url: /openidError
+  param: { module: auth, action: OpenidError }

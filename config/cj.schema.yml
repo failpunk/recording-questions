@@ -1,0 +1,23 @@
+connection: cj
+classes:
+  AffiliateLink:
+    columns:
+      _attributes:          { phpName: AffiliateLink }
+      id:                   ~
+      sku:                  { type: integer, required: true, default: 0 }
+      name:                 { type: varchar(100) }
+      company:              { type: varchar(100) }
+      price:                { type: decimal }
+      buy_url:              { type: longvarchar, default: '' }
+      impression_url:       { type: longvarchar, default: '' }
+      category:             { type: varchar(255), required: true, default: '' }
+      last_update:          { type: timestamp, required: true }
+    indexes:
+      index_sku:            [sku]
+
+  CustomLink:
+    columns:
+      _attributes:          { phpName: CustomLink }
+      id:                   ~
+      link:                 { type: longvarchar, default: '' }
+      button_text:          { type: varchar(45), default: '' }

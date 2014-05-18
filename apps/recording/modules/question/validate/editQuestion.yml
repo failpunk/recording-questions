@@ -1,0 +1,32 @@
+methods:
+  post:
+    - "question{title}"
+    - "question{description}"
+    - "question_tags"
+
+names:
+  question{title}:
+    required: true
+    required_msg: Please give your question a descriptive title.
+    validators: fnValidator
+
+  question{description}:
+    required: true
+    required_msg: Please describe the question in detail (the more the better).
+    validators: fnDescriptionValidator
+
+  question_tags:
+    required: true
+    required_msg: Please add a tag or two to help others find your question.
+    validators: fnValidator
+
+fnValidator:
+  class: sfStringValidator
+
+fnDescriptionValidator:
+  class: sfStringValidator
+  param:
+      min:       2
+      min_error: This field is too short (2 characters minimum)
+      max:       5000
+      max_error: This field is too long (5000 characters maximum)

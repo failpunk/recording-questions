@@ -1,0 +1,164 @@
+# default development values
+dev:
+
+  domain:
+    url:    martini.recordingquestions.com
+
+  search:
+    location:           /home/martini     # location of file to save searches to
+
+# default production values
+all:
+  domain:
+    name:   Recording Questions
+    url:    recordingquestions.com
+  gravatar:
+    default_size:               90
+    default_rating:             PG
+    default_image:              gravatar_default.png
+    default_image_generator:    wavatar
+    cache_dir_name:             g_cache
+    cache_expiration: 3 hours
+  question_description:
+    length: 160
+
+  # recent answer maximum display length
+  recent_answer:
+    length: 120
+    
+  recent_tag:
+    count: 9 # Count of display recent tag on Recent Tags Widget
+  sf_phpopenid_plugin:
+    lib_path: '%SF_ROOT_DIR%/lib/php-openid'
+
+  rss_conf:
+    per_page: 30
+    title: "Recording Questions"
+    author_email: "rss@recordingquestions.com"
+    author_name: "RecordingQuestions.com"
+
+  statistics_page:
+    answer_length: 130
+
+  .array:
+    sphinx_related_question:
+      port: 3313
+      limit: 30
+      offset: 1
+    observer:
+        'question.save':
+            - fpQuestionSpamControlHandler
+        'question.details':
+            - fpQuestionSpamControlHandler
+        'answer.save':
+            - fpAnswerSpamControlHandler
+        'answer.details':
+            - fpAnswerSpamControlHandler
+        'comment.details':
+            - fpCommentSpamControlHandler
+        'comment.save':
+            - fpCommentSpamControlHandler
+        'votes.save':
+            - fpVotesSpamControlHandler
+        'offensive.save':
+            - fpOffensiveSpamControlHandler
+        'votes.check':
+            - fpVotesSpamControlHandler
+        'expereinceQuestion.beforeSave':
+            - fpExperienceQuestionControlHandler
+        'expereinceVote.beforeSave':
+            - fpExperienceVoteControlHandler
+        'expereinceVote.afterSave':
+            - fpExperienceVoteControlHandler
+        'expereinceBestAnswer.afterSave':
+            - fpExperienceBestAnswerControlHandler
+        'expereinceUnsetBestAnswer.afterSave':
+            - fpExpAnswerControlHandler
+
+    question_spam:
+        period: 120 # in seconds
+        limit:  1
+    answer_spam:
+        period: 60 # in seconds
+        limit:  1
+    comment_spam:
+        period: 60 # in seconds
+        limit:  1
+    votes_spam:
+        period: 86400 # One day from 00:00 to 23:59 in seconds
+        limit:  30    # Votes count per day
+    offensive_spam:
+        period: 86400
+        limit:  5
+
+  experience_needed:
+    upvote: 15
+    downvote: 100
+    add_comment: 50
+    offensive: 15
+    post_link: 15
+    post_limit: 100
+    add_tags:  150
+    edit_tags: 500
+  experience_add:
+    vote: 10
+    best_answer: 15
+    select_best_answer: 2
+    remove_downvote: 5
+    remove_you_downvote: 1
+    gear: 5
+    user_review: 5
+  experience_sub:
+    vote: 5
+    you_downvote: 1
+    offensive: 100
+    remove_upvote: 10
+    unset_best_answer: 2
+    unset_user_best_answer: 15
+  experience_default:
+    max_per_day: 200
+
+
+
+  sfPropelActAsTaggableBehaviorPlugin:
+    limit:   20 # Count of display tags on Tags Widget
+
+
+  recent_users:
+    to_display:   9
+
+  comments:
+    to_display:   3
+
+  offensive:
+    confirmation_text:  Are you sure you want to flag this post as offensive or spam?
+
+  posts:
+    allowed_tags_trusted:   '<p><span><b><strong><i><em><strike><ol><ul><li><blockquote><a><img>'
+    allowed_tags_untrusted: '<p><span><b><strong><i><em><strike><ol><ul><li><blockquote>'
+
+  # hard-coded blog URL
+  blog:
+    url:    http://blog.recordingquestions.com
+
+  email:
+    from:  us@recordingquestions.com
+
+  referral:
+    contest_day:        tuesday
+    emails_per_week:    3
+    members_for_shirt:  5
+    
+  search:
+    location:           /home/record     # location of file to save searches to
+
+
+# Gear Section
+#####################
+
+  gear:
+    enable:             true
+    gear_images:        gear/gear
+    company_images:     gear/company
+    studio_images:      gear/studio
+

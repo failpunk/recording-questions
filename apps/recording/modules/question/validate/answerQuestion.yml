@@ -1,0 +1,14 @@
+methods:
+  post:
+    - "answer_captcha"
+
+names:
+  answer_captcha:
+    required: true
+    required_msg: Please enter the characters from the image.
+    validators: fnCaptcha
+
+fnCaptcha:
+  class: fpCaptchaValidator
+  param:
+    captcha_error:  The text did not match the image.

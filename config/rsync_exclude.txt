@@ -1,0 +1,8 @@
+.svn
+/cache/*
+/log/*
+/web/*_dev.php
+/web/images/gear/*
+/web/uploads/*
+/data/*
+/web/*sitemap*

@@ -1,0 +1,398 @@
+connection: propel
+classes:
+  User:
+    columns:
+      _attributes:           { phpName: User }
+      id:                    { type: integer,      primary: true, autoincrement: true }
+      email:                 { type: varchar(64),  required: true }
+      display_name:          { type: varchar(255), required: true }
+      real_name:             { type: varchar(255), required: true }
+      location:              { type: varchar(255) }
+      webpage:               { type: varchar(255) }
+      country:               { type: varchar(255) }
+      postal_code:           { type: integer      }
+      birthday:              { type: timestamp    }
+      gravatar_address:      { type: varchar(255) }
+      info:                  { type: longvarchar  }
+      experience_score:      { type: integer,   required: true, default: 0 }
+      up_votes:              { type: integer,   required: true, default: 0 }
+      down_votes:            { type: integer,   required: true, default: 0 }
+      is_guest:              { type: tinyint,   required: true, default: 0 }
+      today_votes:           { type: integer,   required: true, default: 0 }
+      created_at:            { type: timestamp, required: true }
+      updated_at:            { type: timestamp, required: true }
+    indexes:
+      profile_email:       [email]
+      profile_name:        [real_name]
+      profile_postal_code: [postal_code]
+
+  Openid:
+    columns:
+      _attributes:  { phpName: Openid }
+      id:           { type: integer,      primary: true, autoincrement: true }
+      user_id:      { type: integer,      primary: true  }
+      openid:       { type: varchar(255), primary: true  }
+      created_at:   { type: timestamp,    required: true }
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  rpxAuth:
+    columns:
+      _attributes:  { phpName: RpxAuth }
+      id:           { type: integer,      primary: true, autoincrement: true }
+      user_id:      { type: integer,      primary: true  }
+      identifier:   { type: varchar(255), primary: true  }
+      created_at:   { type: timestamp,    required: true }
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  Question:
+    columns:
+      _attributes:  { phpName: Question }
+      id:           { type: integer,   primary: true, autoincrement: true }
+      user_id:      { type: integer,   required: true }
+      tag_id:       { type: integer }
+      title:        { type: varchar(255) }
+      description:  { type: longvarchar  }
+      offensive:    { type: integer,   required: true, default: 0 }
+      visible:      { type: integer,   required: true, default: 1 }
+      locked:       { type: integer,   required: true, default: 0 }
+      upvotes:      { type: integer,   required: true, default: 0 }
+      downvotes:    { type: integer,   required: true, default: 0 }
+      visited:      { type: integer,   required: true, default: 0 }
+      created_at:   { type: timestamp, required: true }
+      updated_at:   { type: timestamp, required: true }
+    indexes:
+      post_created:           [created_at]
+      fk_post_user_profile:   [user_id]
+      post_title:             [title]
+      fk_question_tag:        [tag_id]
+    foreignKeys:
+      -
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+
+  QuestionComment:
+    columns:
+      _attributes:  { phpName: QuestionComment }
+      id:           ~
+      description:  { type: varchar(255) }
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_comment_user_id:        [user_id]
+      fk_question_comment_question_id:    [question_id]
+    foreignKeys:
+      fk_question_comment_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_comment_question_id:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  Answer:
+    columns:
+      _attributes:  { phpName: Answer }
+      id:           { type: integer,     primary: true, autoincrement: true }
+      user_id:      { type: integer,     required: true }
+      question_id:  { type: integer,     required: true }
+      answer:       { type: longvarchar, required: true }
+      offensive:    { type: integer,     required: true, default: 0 }
+      bestAnswer:   { type: boolean,     required: true, default: false }
+      upvotes:      { type: integer,     required: true, default: 0 }
+      downvotes:    { type: integer,     required: true, default: 0 }
+      visible:      { type: integer,     required: true, default: 1 }
+      visited:      { type: integer,     required: true, default: 0 }
+      created_at:   { type: timestamp,   required: true }
+      updated_at:   { type: timestamp,   required: true }
+    indexes:
+      post_created:        [created_at]
+      fk_answer_user:      [user_id]
+      fk_answer_question:  [question_id]
+    foreignKeys:
+      fk_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  AnswerComment:
+    columns:
+      _attributes:  { phpName: AnswerComment }
+      id:           ~
+      description:  { type: varchar(255) }
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_comment_user_id:        [user_id]
+      fk_answer_comment_answer_id:      [answer_id]
+    foreignKeys:
+      fk_answer_comment_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_comment_answer_id:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  QuestionVote:
+    columns:
+      _attributes:  { phpName: QuestionVote }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      weight:       { type: integer,   required: true }
+      positive:      { type: boolean }
+      negative:      { type: boolean }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_vote_user:   [user_id]
+      fk_question_vote_question:  [question_id]
+    foreignKeys:
+      fk_question_vote_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_vote_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  AnswerVote:
+    columns:
+      _attributes:  { phpName: AnswerVote }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      weight:       { type: integer,   required: true }
+      positive:      { type: boolean }
+      negative:      { type: boolean }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_vote_user:   [user_id]
+      fk_answer_vote_answer:  [answer_id]
+    foreignKeys:
+      fk_answer_vote_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_vote_answer:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  UserFavorite:
+    columns:
+      _attributes:  { phpName: UserFavorite }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_user_favorite_user_profile:   [user_id]
+      fk_user_favorite_question:  [question_id]
+    foreignKeys:
+      fk_user_favorite_user_profile:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_user_favorite_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  UserTag:
+    columns:
+      _attributes:   { phpName: UserTag }
+      id:            ~
+      tag_id:        { type: integer, required: true }
+      user_id:       { type: integer, required: true }
+      positive:      { type: boolean }
+      negative:      { type: boolean }
+    indexes:
+      fk_tag_user_tag:     [tag_id]
+      fk_user_id_user_tag: [user_id]
+    foreignKeys:
+      fk_user_id_user_tag:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_tag_user_tag:
+        foreignTable: sf_tag
+        references:
+          - { local: tag_id, foreign: id }
+
+  ExperienceTemplates:
+   columns:
+      _attributes:  { phpName: ExperienceTemplates }
+      id:           ~
+      experience:   { type: integer  }
+      value:        { type: longvarchar }
+
+  InformationTemplates:
+    columns:
+      _attributes:  { phpName: InformationTemplates }
+      id:           ~
+      value:        { type: longvarchar   }
+      exp_date:     { type: timestamp }
+
+  CustomTemplates:
+    columns:
+      _attributes:  { phpName: CustomTemplates }
+      id:           ~
+      name:         { type: varchar(256) }
+      value:        { type: longvarchar }
+
+  CheckInformation:
+    columns:
+      _attributes:  { phpName: CheckInformation }
+      id:              ~
+      user_id:         { type: integer }
+      information_id:  { type: integer }
+    indexes:
+      fk_check_user_id:     [user_id]
+      fk_check_information_id: [information_id]
+    foreignKeys:
+      fk_check_user_id:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_check_information_id:
+        foreignTable: information_templates
+        references:
+          - { local: information_id, foreign: id }
+
+  UserMessage:
+    columns:
+      _attributes:  { phpName: UserMessage }
+      id:           ~
+      user_id:      { type: integer }
+      message:      { type: longvarchar }
+
+  AnswerOffensive:
+    columns:
+      _attributes:  { phpName: AnswerOffensive }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      answer_id:    { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_answer_offensive_user:   [user_id]
+      fk_answer_offensive_answer:  [answer_id]
+    foreignKeys:
+      fk_answer_offensive_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_answer_offensive_answer:
+        foreignTable: answer
+        references:
+          - { local: answer_id, foreign: id }
+
+  QuestionOffensive:
+    columns:
+      _attributes:  { phpName: QuestionOffensive }
+      id:           ~
+      user_id:      { type: integer,   required: true }
+      question_id:  { type: integer,   required: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_question_offensive_user:   [user_id]
+      fk_question_offensive_question:  [question_id]
+    foreignKeys:
+      fk_question_offensive_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_question_offensive_question:
+        foreignTable: question
+        references:
+          - { local: question_id, foreign: id }
+
+  Tooltips:
+    columns:
+      _attributes: { phpName: Tooltips }
+      id:          ~
+      key:         { type: varchar(255) }
+      value:       { type: longvarchar }
+
+  Award:
+    columns:
+      _attributes:  { phpName: Award }
+      id:           ~
+      name:         { type: varchar(25) }
+      description:  { type: varchar(255) }
+      created_at:   { type: timestamp, required: true }
+
+  UserAward:
+    columns:
+      _attributes:  { phpName: UserAward }
+      user_id:      { type: integer,   required: true, primaryKey: true }
+      award_id:     { type: integer,   required: true, primaryKey: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_award_user: [user_id]
+      fk_award_id:   [award_id]
+    foreignKeys:
+      fk_award_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_award_id:
+        foreignTable: award
+        references:
+          - { local: award_id, foreign: id }
+
+
+
+  Award:
+    columns:
+      _attributes:  { phpName: Award }
+      id:           ~
+      name:         { type: varchar(25) }
+      description:  { type: varchar(255) }
+      created_at:   { type: timestamp, required: true }
+
+  UserAward:
+    columns:
+      _attributes:  { phpName: UserAward }
+      user_id:      { type: integer,   required: true, primaryKey: true }
+      award_id:     { type: integer,   required: true, primaryKey: true }
+      created_at:   { type: timestamp, required: true }
+    indexes:
+      fk_award_user: [user_id]
+      fk_award_id:   [award_id]
+    foreignKeys:
+      fk_award_user:
+        foreignTable: user
+        references:
+          - { local: user_id, foreign: id }
+      fk_award_id:
+        foreignTable: award
+        references:
+          - { local: award_id, foreign: id }
+
+
+
+
+
+
+
+
+
+

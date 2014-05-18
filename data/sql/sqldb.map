@@ -1,0 +1,3 @@
+# Sqlfile -> Database map
+plugins.sfPropelActAsTaggableBehaviorPlugin.lib.model.schema.sql=propel
+lib.model.schema.sql=propel

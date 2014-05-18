@@ -1,0 +1,113 @@
+/*
+ * Javascript file to use for questions
+ */
+$j = jQuery.noConflict();
+
+$j(document).ready(function() {
+
+    // get basic info from jquery helper
+    var baseUrl = routes.base;
+
+    // display any votes current user has cast.
+    var questionId = $j('#question-id').val();
+
+   /*
+    *   Makes an AJAX call to get the voting history for the current user on this question and it answers.
+    */
+    $j.post(baseUrl + '/question/getUserVoting/' + questionId,
+            '',
+            function(votedata) {
+                applyUserVotesToPage(votedata);
+            }, "json");
+
+
+   /*
+    *   Bind vote action to question vote buttons
+    */
+    $j("div.question p.votes span a").click(function()
+    {
+        // get the queston hidden field
+        var inputTag = $j(this).parent().parent().find("input");
+
+        // get vote type
+        var voteType = $j(this).parent().attr('class');
+
+        $j.post(baseUrl + '/question/updateVoteForQuestion/' + questionId +'/'+ voteType, '',
+                function(data) {
+                    updateQuestionVote(inputTag, data.action, data.message, data.votecount, voteType);
+                }, "json");
+        return false;
+    });
+
+
+   /*
+    *   Bind vote action to answer vote buttons
+    */
+    $j("div.answer p.votes span a").click(function()
+    {
+        // get the answer hidden field
+        var inputTag = $j(this).parent().parent().find("input");
+        var answerId = inputTag.val();
+
+        // get vote type
+        var voteType = $j(this).parent().attr('class');
+
+        $j.post(baseUrl + '/question/updateVoteForAnswer/' + answerId +'/'+ voteType, '',
+                function(data) {
+                    updateQuestionVote(inputTag, data.action, data.message, data.votecount, voteType);
+                }, "json");
+        return false;
+    });
+
+
+   /*
+    *   Updates the vote count and the question vote button states
+    */
+    function updateQuestionVote(inputTag, action, message, votecount, votetype)
+    {
+        var voteCountElement = inputTag.siblings(".num");
+
+        // clear vote class
+        inputTag.siblings(".add").children().removeClass("vote");
+        inputTag.siblings(".sub").children().removeClass("vote");
+
+        if(action == "addvote") {
+            if(message == "success") {
+                if(votetype == "add")
+                    inputTag.siblings(".add").children().addClass("vote");
+                else
+                    inputTag.siblings(".sub").children().addClass("vote");
+            } else {
+                alert(message);
+            }
+        }
+
+        voteCountElement.text(votecount);
+    }
+
+
+   /*
+    *   Updates all the voting buttons to reflect what user has voted on.
+    */
+    function applyUserVotesToPage(votedata)
+    {
+        // apply question votes
+        var questionInput = $j('#question-id');
+
+        $j.each(votedata, function(id, name) {
+            if(name.posttype == "question") {
+                if(name.votetype == "upvote") {
+                    questionInput.siblings(".add").children().addClass("vote");
+                } else {
+                    questionInput.siblings(".sub").children().addClass("vote");
+                }
+            } else {
+                if(name.votetype == "upvote") {
+                    $j("#answer-" + name.id).siblings(".add").children().addClass("vote");
+                } else {
+                    $j("#answer-" + name.id).siblings(".sub").children().addClass("vote");
+                }
+            }
+        });
+    }
+});
